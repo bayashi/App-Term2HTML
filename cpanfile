@@ -1,10 +1,13 @@
 requires 'perl', '5.008005';
 requires 'strict';
 requires 'warnings';
-requires 'Carp';
+requires 'Getopt::Long', '2.42';
+requires 'Pod::Usage';
+requires 'IO::Interactive::Tiny';
 
 on 'test' => sub {
     requires 'Test::More', '0.88';
+    requires 'Test::Output';
 };
 
 on 'configure' => sub {

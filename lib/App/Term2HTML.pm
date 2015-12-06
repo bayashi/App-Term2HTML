@@ -1,43 +1,91 @@
 package App::Term2HTML;
 use strict;
 use warnings;
-use Carp qw/croak/;
+use Getopt::Long qw/GetOptionsFromArray/;
+use IO::Interactive::Tiny;
+use HTML::FromANSI::Tiny;
 
 our $VERSION = '0.01';
 
-sub new {
-    my $class = shift;
-    my $args  = shift || +{};
+sub run {
+    my $self = shift;
+    my @argv = @_;
 
-    bless $args, $class;
+    my $config = {};
+    _merge_opt($config, @argv);
+
+    _main($config);
+}
+
+sub _main {
+    my $config = shift;
+
+    my $h = HTML::FromANSI::Tiny->new(
+        inline_style => 1,
+    );
+
+    if ( !IO::Interactive::Tiny::is_interactive(*STDIN) ) {
+        while (my $stdin = <STDIN>) {
+            print $h->html($stdin);
+        }
+    }
+}
+
+sub _merge_opt {
+    my ($config, @argv) = @_;
+
+    GetOptionsFromArray(
+        \@argv,
+        'h|help'  => sub {
+            _show_usage(1);
+        },
+        'v|version' => sub {
+            print "$0 $VERSION\n";
+            exit 1;
+        },
+    ) or _show_usage(2);
+}
+
+sub _show_usage {
+    my $exitval = shift;
+
+    require Pod::Usage;
+    Pod::Usage::pod2usage(-exitval => $exitval);
 }
 
 1;
 
 __END__
 
-=encoding UTF-8
-
 =head1 NAME
 
-App::Term2HTML - one line description
+App::Term2HTML - converting colored terminal output to HTML
 
 
 =head1 SYNOPSIS
 
     use App::Term2HTML;
 
+    App::Term2HTML->run(@ARGV);
+
 
 =head1 DESCRIPTION
 
-App::Term2HTML is
+App::Term2HTML provides L<term2html> command.
+
+
+=head1 METHOD
+
+=head2 run
+
+execute term2html
 
 
 =head1 REPOSITORY
 
 =begin html
 
-<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?branch=master"/></a>
+<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png?_t=1449370678"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?_t=1449370678&branch=master"/></a>
 
 =end html
 
@@ -53,7 +101,7 @@ Dai Okabayashi E<lt>bayashi@cpan.orgE<gt>
 
 =head1 SEE ALSO
 
-L<Other::Module>
+L<term2html>
 
 
 =head1 LICENSE

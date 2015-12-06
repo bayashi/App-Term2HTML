@@ -5,7 +5,7 @@ This is Perl module B<App::Term2HTML>.
 
 =begin html
 
-<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?branch=master"/></a> <a href="http://cpants.cpanauthors.org/dist/App-Term2HTML"><img src="http://cpa
+<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png?_t=1449370678"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?_t=1449370678&branch=master"/></a> <a href="http://cpants.cpanauthors.org/dist/App-Term2HTML"><img src="http://cpa
 nts.cpanauthors.org/dist/App-Term2HTML.png"/></a>
 
 =end html

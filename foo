@@ -1,0 +1,14 @@
+Build.PL
+Changes
+LICENSE
+MANIFEST
+MANIFEST.SKIP
+Makefile.PL
+README.pod
+cpanfile
+foo
+[0m[01;34mlib[0m/
+[01;34mscript[0m/
+[01;34mt[0m/
+[01;34mxt[0m/
+[m
