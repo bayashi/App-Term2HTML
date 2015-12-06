@@ -21,13 +21,16 @@ sub _main {
     my $config = shift;
 
     my $h = HTML::FromANSI::Tiny->new(
-        inline_style => 1,
+        $config->{inline_style} ? (inline_style => 1) : (),
     );
 
     if ( !IO::Interactive::Tiny::is_interactive(*STDIN) ) {
+        print join('', '<style>', $h->css, '</style>', "\n") if !$config->{inline_style};
+        print "<pre>";
         while (my $stdin = <STDIN>) {
             print $h->html($stdin);
         }
+        print "</pre>\n";
     }
 }
 
@@ -36,6 +39,7 @@ sub _merge_opt {
 
     GetOptionsFromArray(
         \@argv,
+        'is|inline-style' => \$config->{inline_style},
         'h|help'  => sub {
             _show_usage(1);
         },
