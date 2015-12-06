@@ -8,18 +8,6 @@ my $builder = Module::Build::Pluggable->new(
     license             => 'perl',
     dist_author         => 'Dai Okabayashi <bayashi@cpan.org>',
     dist_version_from   => 'lib/App/Term2HTML.pm',
-    configure_requires  => {
-        'Module::Build' => 0.38,
-    },
-    build_requires      => {
-        'Test::More' => 0.88,
-    },
-    requires => {
-        'perl' => '5.008001',
-        'strict' => 0,
-        'warnings' => 0,
-        'Carp' => 0,
-    },
     add_to_cleanup      => [ 'App-Term2HTML-*' ],
     meta_merge     => {
       resources => {
@@ -33,6 +21,7 @@ my $builder = Module::Build::Pluggable->new(
     },
     recursive_test_files => 1,
     test_files => (-d '.git' || $ENV{RELEASE_TESTING}) ? ['t/', 'xt/'] : ['t/'],
+    create_license => 1,
 );
 
 $builder->create_build_script();
