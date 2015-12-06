@@ -5,7 +5,7 @@ use Getopt::Long qw/GetOptionsFromArray/;
 use IO::Interactive::Tiny;
 use HTML::FromANSI::Tiny;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 sub run {
     my $self = shift;
@@ -89,7 +89,7 @@ execute term2html
 
 =begin html
 
-<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png?_t=1449370678"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?_t=1449370678&branch=master"/></a>
+<a href="http://travis-ci.org/bayashi/App-Term2HTML"><img src="https://secure.travis-ci.org/bayashi/App-Term2HTML.png?_t=1449406825"/></a> <a href="https://coveralls.io/r/bayashi/App-Term2HTML"><img src="https://coveralls.io/repos/bayashi/App-Term2HTML/badge.png?_t=1449406825&branch=master"/></a>
 
 =end html
 
