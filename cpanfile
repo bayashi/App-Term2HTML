@@ -4,6 +4,7 @@ requires 'warnings';
 requires 'Getopt::Long', '2.42';
 requires 'Pod::Usage';
 requires 'IO::Interactive::Tiny';
+requires 'HTML::FromANSI::Tiny';
 
 on 'test' => sub {
     requires 'Test::More', '0.88';
