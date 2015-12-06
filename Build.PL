@@ -7,6 +7,7 @@ my $builder = Module::Build::Pluggable->new(
     module_name         => 'App::Term2HTML',
     license             => 'perl',
     dist_author         => 'Dai Okabayashi <bayashi@cpan.org>',
+    script_files        => [ 'script/term2html' ],
     dist_version_from   => 'lib/App/Term2HTML.pm',
     add_to_cleanup      => [ 'App-Term2HTML-*' ],
     meta_merge     => {
